@@ -11,7 +11,8 @@ contract Charity {
     constructor() {
         owner = msg.sender;
     }
-    modifier onlyOwner() {
+
+modifier onlyOwner() {
         require(msg.sender == owner, "Only the contract owner can call this function.");
         _;
     }
@@ -20,5 +21,12 @@ contract Charity {
         balances[msg.sender] += msg.value;
         emit DonationReceived(msg.sender, msg.value);
     }
+
+function withdraw() external onlyOwner {
+        uint256 balance = address(this).balance;
+        require(balance > 0, "No funds available for withdrawal.");
+        payable(owner).transfer(balance);
+    }
+
 
 }
