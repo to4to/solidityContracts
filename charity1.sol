@@ -15,5 +15,10 @@ contract Charity {
         require(msg.sender == owner, "Only the contract owner can call this function.");
         _;
     }
+    function donate() external payable {
+        require(msg.value > 0, "Donation amount must be greater than 0.");
+        balances[msg.sender] += msg.value;
+        emit DonationReceived(msg.sender, msg.value);
+    }
 
 }
