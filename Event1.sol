@@ -25,7 +25,15 @@ mapping (address=>mapping (uint=>uint)) public tickets;
     ) public {
 require(_ticketCount>0,"Not Enough Tickets");
 require(_date>block.timestamp,"Check Time");
-
+events[id] = Events(
+            msg.sender,
+            _name,
+            _date,
+            _price,
+            _ticketCount,
+            _ticketCount
+        );
+        id++;
     }
 
 
