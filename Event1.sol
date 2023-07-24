@@ -17,6 +17,16 @@ mapping (uint=>Event)public events;
 mapping (address=>mapping (uint=>uint)) public tickets;
 
 
+    function createEvent(
+        string memory _name,
+        uint256 _date,
+        uint256 _price,
+        uint256 _ticketCount
+    ) public {
+require(_ticketCount>0,"Not Enough Tickets");
+require(_date>block.timestamp,"Check Time");
+
+    }
 
 
 
