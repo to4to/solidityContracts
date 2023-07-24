@@ -36,7 +36,7 @@ events[id] = Events(
         id++;
     }
 
-
+function buyTicket()public{}
 
 
 }
