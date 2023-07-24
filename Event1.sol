@@ -36,7 +36,17 @@ events[id] = Events(
         id++;
     }
 
-function buyTicket()public{}
+function buyTicket(uint _id,uint _quantity)external payable {
+
+      require(_quantity>0,"Check Quantity");
+      Events storage eve=events[_id];
+      require(events[_id].date>0,"Event does not exist");
+      require(events[_id].date>block.timestamp,"Event Expired");
+      require();
+
+          
+
+    }
 
 
 }
