@@ -47,6 +47,18 @@ events[id] = Events(
 
 
  }
-function transferTicket(uint _id,uint _quantity,address to)public 
+function transferTicket(uint _id,uint _quantity,address to)public {
+
+require(_quantity>0,"Enter Tickets");
+require(tickets[msg.sender][_id]>0,"Enter Quantity");
+require(events[_id].date!=0,"Event does not exists");
+require(events[_id].date>block.timestamp,"Event Expired");
+
+tickets[msg.sender][_id]-=_quantity;
+tickets[to][_id]+=_quantity;
+
+
+
+ }
 
 }
