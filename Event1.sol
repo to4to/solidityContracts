@@ -47,6 +47,6 @@ events[id] = Events(
 
 
  }
-
+function transferTicket(uint _id,uint _quantity,address to)public 
 
 }
