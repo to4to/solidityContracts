@@ -36,17 +36,17 @@ events[id] = Events(
         id++;
     }
 
-function buyTicket(uint _id,uint _quantity)external payable {
+ function buyTicket(uint _id,uint quantity) external payable{
+   require(events[_id].date!=0,"Event does not exist");
+   require(events[_id].date>block.timestamp,"Event has already occured");
+   Events storage _event = events[id];
+   require(msg.value==(_event.price*quantity),"Ethere is not enough");
+   require(_event.ticketRemain>=quantity,"Not enough tickets");
+   _event.ticketRemain-=quantity;
+   tickets[msg.sender][id]+=quantity;
 
-      require(_quantity>0,"Check Quantity");
-      Events storage eve=events[_id];
-      require(events[_id].date>0,"Event does not exist");
-      require(events[_id].date>block.timestamp,"Event Expired");
-      require();
 
-          
-
-    }
+ }
 
 
 }
