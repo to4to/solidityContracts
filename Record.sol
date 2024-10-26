@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-contract PayPal {
+contract Record {
     //Defining Owner Of Contract
     address public owner;
 
